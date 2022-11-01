@@ -1,5 +1,6 @@
 package zohoTest2;
 
+
 public class LinkedList {
 	Node head;
 	Node pos;
@@ -12,7 +13,7 @@ public class LinkedList {
 		}
 	}
 
-	public void push(int n) {
+	private void push(int n) {
 		Node node = new Node(n);
 		if(pos!=null) {
 			pos.next=node;
@@ -23,24 +24,22 @@ public class LinkedList {
 		pos=node;
 	}
 	
-	public void rightMax() {
+	private void rightMax() {
 		Node n1= head;
-		int frontData;
+		int count;
 		while(n1!=null) {
 			Node n2= n1.next;
-			frontData=n1.data;
+            count=0;
 			while(n2!=null) {
-				frontData=Math.max(frontData, n2.data);
-				if(frontData>n1.data) {
+				if(n1.data<n2.data) {
+					count++;
+					System.out.print(n2.data);
 					break;
 				}
 				n2=n2.next;
 			}
-			if(frontData>n1.data) {
-				System.out.print(frontData);
-			}else {
-				System.out.print(0);
-			}
+			if(count==0)
+				System.out.print(count);
 			n1=n1.next;
 		}
 	}
